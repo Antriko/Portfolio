@@ -1,0 +1,40 @@
+.navbar a {
+    color: white !important;
+    padding: 6px 9px;
+}
+
+.navbar-userPanel {
+    display: flex;
+    right: 0px;
+}
+
+.sidepanel {
+    height: 100vh;
+    width: 0vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(52,58,64,0.7);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.close {
+    height: 100vh;
+    width: 0vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(52,244,64,0.25);
+}
+.dropdown-menu {
+    right: 0;
+    left: auto;
+    background-color: #343a40;
+}
+.dropdown-item:hover {
+    background-color: #1d2124;
+}

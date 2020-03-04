@@ -1,0 +1,19 @@
+.stack {
+    border: 1px solid rgb(225,229,234);
+    border-radius: 12px;
+    font-size: 0.9em;
+}
+.stack p {
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) { 
+    .stack {
+        font-size: 0.5rem;
+    }
+}
+@media screen and (max-width: 425px) { 
+    .stack {
+        font-size: 0.35rem;
+    }
+}
