@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  frontend:
+  front:
     build:
       context: ./front
       dockerfile: Dockerfile
