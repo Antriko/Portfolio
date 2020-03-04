@@ -9,23 +9,27 @@ export default function header() {
             <header className="bg-secondary p-5">
                 <div className="container text-white">
                     <div className="row">
-                        <div className="col-4">
+                        <div className="col-sm-4 col-12">
                             <img className="img-fluid" src={avatar} alt="Avatar"/>
                         </div>
-                        <div className="col-8">
+                        <div className="d-flex flex-column col-sm-8 col-12 mh-100 contactInfo">
                             <h1>Antriko Hajdari</h1>
-                            <div className="contactInfo">
+                            <div>
                                 <i className="fas fa-phone mr-3"></i>
                                 07597117427
-                                <br />
+                            </div>
+                            <div>
                                 <i className="fas fa-envelope mr-3"></i>
                                 AntrikoH@gmail.com
-                                <br />
                             </div>
-                            <div className="social">
-                                <a className="text-decoration-none mr-3" href="https://github.com/Antriko"><i className="fab fa-github-square fa-5x"></i></a> <br />
-                                <Link to="/aboutme" className="contactInfo btn btn-light text-dark text-uppercase">Learn more</Link>
+
+                            <div className="mt-auto">
+                                <a className="align-self-start mr-3" href="https://github.com/Antriko"><i className="fab fa-github-square fa-3x"></i></a> <br/>
+                                <Link to="/aboutme" className="btn btn-light text-dark text-uppercase align-self-end">Learn more</Link>
                             </div>
+
+
+
                         </div>
                     </div>
                 </div>
