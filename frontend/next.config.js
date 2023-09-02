@@ -6,6 +6,7 @@ const nextConfig = {
         // https://nextjs.org/docs/messages/export-image-api
         unoptimized: true
     },
+    distDir: 'build',
     webpack: (config, context) => {
       config.watchOptions = {
         poll: 1000,
