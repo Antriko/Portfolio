@@ -11,7 +11,7 @@ services:
       - ${PORT_FRONTEND}:${PORT_FRONTEND}
     volumes:
       - ./frontend:/frontend:rw
-      - ./frontend/out:/frontend/out:rw
+      - ./frontend/build:/frontend/build:rw
       - /frontend/node_modules
     environment:
       CHOKIDAR_USEPOLLING: "true"
@@ -35,6 +35,6 @@ services:
       - ./nginx/prod:/etc/nginx/templates
       - ./nginx/crontab.txt:/crontab.txt
       - ./certs/conf:/etc/letsencrypt
-      - ./frontend/out:/front_dist
+      - ./frontend/build:/front_dist
     # logging:
     #   driver: "none"
