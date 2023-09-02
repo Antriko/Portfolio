@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    command: npm run dev -- -p ${PORT_FRONTEND}
+    ports: 
+      - ${PORT_FRONTEND}:${PORT_FRONTEND}
+    restart: unless-stopped
+    volumes:
+      - ./frontend:/frontend:rw
+      - ./frontend/front_dist:/frontend/front_dist:rw
+      - /frontend/node_modules
+    environment:
+      NODE_ENV: "development"
+      CHOKIDAR_USEPOLLING: "true"
+    stdin_open: true
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    depends_on:
+      - frontend
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      PORT_FRONTEND: ${PORT_FRONTEND}
+      NGINX_ENVSUBST_OUTPUT_DIR: /etc/nginx
+
+    restart: unless-stopped
+    volumes:
+      - ./nginx/dev:/etc/nginx/templates
+      - ./static:/static:rw
+      - ./frontend/front_dist:/front_dist
+    logging:
+      driver: none

@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.prod
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      DOMAIN: ${DOMAIN}
+      NGINX_ENVSUBST_OUTPUT_DIR: /etc/nginx
+    volumes:
+      - ./nginx/initial:/etc/nginx/templates
+      - ./nginx/crontab.txt:/crontab.txt
+      - ./frontend/dist:/dist
+      - ./certs/conf:/etc/letsencrypt
+      - ./nginx/initial/html:/usr/share/nginx/html
