@@ -11,7 +11,7 @@ services:
       - ${PORT_FRONTEND}:${PORT_FRONTEND}
     volumes:
       - ./frontend:/frontend:rw
-      - ./frontend/build/nuxt:/frontend/build/nuxt:rw
+      - ./frontend/out:/frontend/out:rw
       - /frontend/node_modules
     environment:
       CHOKIDAR_USEPOLLING: "true"
@@ -28,13 +28,12 @@ services:
       - 443:443
     environment:
       DOMAIN: ${DOMAIN}
-      DOMAIN2: ${DOMAIN2}
       NGINX_ENVSUBST_OUTPUT_DIR: /etc/nginx
     restart: always
     volumes:
       - ./nginx/prod:/etc/nginx/templates
       - ./nginx/crontab.txt:/crontab.txt
       - ./certs/conf:/etc/letsencrypt
-      - ./frontend/build/nuxt:/front_dist
+      - ./frontend/out:/front_dist
     # logging:
     #   driver: "none"
